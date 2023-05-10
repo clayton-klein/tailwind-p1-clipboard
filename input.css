@@ -4,8 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 
-    There is no class in Tailwind where we can define the background-image path,
+/* There is no class in Tailwind where we can define the background-image path,
 so we had to do it manually here.
  */
 body {
@@ -19,3 +18,23 @@ body {
     background-image: url("../images/bg-header-mobile.png");
   }
 }
+
+/* To avoid too many classes repetition we can create an "apply directive" like the one bellow,
+this allows us to add Tailwind's utility classes in our custom classes! */
+.section-container {
+  @apply max-w-6xl mx-auto text-center;
+}
+
+.button-container {
+  @apply flex flex-col justify-center w-full space-y-6 text-xl text-white md:flex-row md:space-y-0 md:space-x-4;
+}
+
+/* Here we're basically changing the default values of the "h3" element, since all the h3 on
+the page will have this same style then we can avoid classes' repetition by doing it and now
+our h3 elements don't even need a class anymore. */
+@layer base {
+  h3 {
+    @apply mb-8 text-4xl font-bold text-darkGrayishBlue md:text-5xl;
+  }
+}
+
