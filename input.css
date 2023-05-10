@@ -1,3 +1,21 @@
+/* Whenever we want to add custom CSS it goes in this file. */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* 
+    There is no class in Tailwind where we can define the background-image path,
+so we had to do it manually here.
+ */
+body {
+  background-image: url("../images/bg-header-desktop.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+@media (max-width: 576px) {
+  body {
+    background-image: url("../images/bg-header-mobile.png");
+  }
+}
